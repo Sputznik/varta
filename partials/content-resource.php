@@ -30,7 +30,5 @@ foreach ($metainfo as $meta) {
       echo $value;
       _e("</p>");
     }
-
   }
-
 }

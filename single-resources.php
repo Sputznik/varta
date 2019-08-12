@@ -7,6 +7,7 @@
         <?php get_template_part("partials/content", "resource");?>
         <hr>
         <?php the_content('Read the rest of this entry »'); ?>
+        <?php get_template_part("partials/content", "single");?>
       <?php endwhile; endif; ?>
     </div></div>
   </div>
