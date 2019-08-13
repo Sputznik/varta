@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
       $defaultOption.appendTo('.subservices select');
     }
     else{
-      $options = $cloneSubServices.find('option');
+      $options = $cloneSubServices.find('option').clone();
       $options.first().val(0);
     }
 
