@@ -1,36 +1,49 @@
 jQuery(document).ready(function(){
 
-  // Clones all subservices from dropdown
-  var $cloneSubServices = jQuery('.subservices select').clone();
+  jQuery( '[data-behaviour~="orbit-nested-dropdown"]' ).each( function(){
 
-  // change subservices when the main service is changed
-  jQuery('.mainservices select').change( function( ev ){
+    var $el             = jQuery( this ),
+      $cats_dropdown    = $el.find( '.cats select' ),
+      $subcats_dropdown = $el.find( '.subcats select' ),
+      $cloneSubDropdown = $el.find( '.subcats select' ).clone();  // Clones all subcats from dropdown
 
-    var $el = jQuery( ev.target );
+    function updateSubDropdown(){
 
-    var currentService = $el.val();
+      var currentCategoryValue = $cats_dropdown.val();
 
-    jQuery('.subservices select option').remove();
+      $subcats_dropdown.find( 'option' ).remove();
 
-    var $options;
+      var $options;
 
-    if( currentService > 0 ){
-      $options = $cloneSubServices.find('option[data-parent~="' + currentService + '"]').clone();
+      if( currentCategoryValue > 0 ){
+        $options = $cloneSubDropdown.find( 'option[data-parent~="' + currentCategoryValue + '"]' ).clone();
 
-      var $defaultOption = jQuery( document.createElement( 'option' ) );
-      $defaultOption.val( 0 );
-      $defaultOption.html('Select');
-      $defaultOption.appendTo('.subservices select');
+        var $defaultOption = jQuery( document.createElement( 'option' ) );
+        $defaultOption.val( 0 );
+        $defaultOption.html('Select');
+        $defaultOption.appendTo( $subcats_dropdown );
+      }
+      else{
+        $options = $cloneSubDropdown.find('option').clone();
+        $options.first().val(0);
+      }
+
+      $options.appendTo( $subcats_dropdown );
+
+      $subcats_dropdown.val(0);
+
     }
-    else{
-      $options = $cloneSubServices.find('option').clone();
-      $options.first().val(0);
-    }
 
-    $options.appendTo('.subservices select');
+    // change subservices when the main service is changed
+    $cats_dropdown.change( function( ev ){
 
-    jQuery('.subservices select').val(0);
+      updateSubDropdown();
+
+    });
 
   });
+
+
+
 
 } );
