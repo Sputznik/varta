@@ -9,6 +9,22 @@ add_action('wp_enqueue_scripts',function(){
 
 include('lib/cpt/cpt.php');
 
+//Sidebar widget for single-resource posts
+add_action( 'widgets_init', function(){
+  register_sidebar( array(
+    'name' 			=> 'Single Resource Sidebar',
+    'id' 			=> 'single-resource-sidebar',
+    'description' 	=> 'Sidebar appears in the single resources post',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' 	=> '</aside>',
+    'before_title' 	=> '<h3 class="widget-title">',
+    'after_title' 	=> '</h3>',
+  ) );
+});
+
+
+
+
 add_filter( 'orbit-nested-dropdown-label', function( $label, $atts ){
 
   if( $atts['typeval'] == 'locations' ){ $label = "Select City"; }
