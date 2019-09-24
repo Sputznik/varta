@@ -6,6 +6,7 @@
         <h3><?php the_title();?></h3>
         <?php get_template_part("partials/content", "resource");?>
         <hr>
+        <label>Contact Information:</label>
         <?php the_content('Read the rest of this entry »'); ?>
         <?php get_template_part("partials/content", "single");?>
       <?php endwhile; endif; ?>

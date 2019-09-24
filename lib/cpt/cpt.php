@@ -25,10 +25,6 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 			'id'			=> 'resources-meta-fields',
 			'title'		=> 'Additional Information',
 			'fields'	=> array(
-				'contact_info' => array(
-					'type' => 'textarea',
-					'text' => 'Contact Information'
-				),
 				'qualifications'	=> array(
 					'type' => 'text',
 					'text' => 'Qualifications'
