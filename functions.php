@@ -12,14 +12,49 @@ include('lib/cpt/cpt.php');
 //Sidebar widget for single-resource posts
 add_action( 'widgets_init', function(){
   register_sidebar( array(
-    'name' 			=> 'Single Resource Sidebar',
-    'id' 			=> 'single-resource-sidebar',
+    'name' 			    => 'Single Resource Sidebar',
+    'id' 			      => 'single-resource-sidebar',
     'description' 	=> 'Sidebar appears in the single resources post',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' 	=> '</aside>',
     'before_title' 	=> '<h3 class="widget-title">',
     'after_title' 	=> '</h3>',
   ) );
+
+  // Sidebar widget for single posts
+  register_sidebar( array(
+    'name' 			    => 'Sidebar for Single Post',
+    'id' 			      => 'single-post-sidebar',
+    'description' 	=> 'Sidebar appears in the single posts page',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' 	=> '</aside>',
+    'before_title' 	=> '<h3 class="widget-title">',
+    'after_title' 	=> '</h3>',
+  ) );
+
+  // Sidebar widget for pages
+  register_sidebar( array(
+    'name' 			    => 'Sidebar for Pages',
+    'id' 			      => 'single-page-sidebar',
+    'description' 	=> 'Sidebar appears in the pages',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' 	=> '</aside>',
+    'before_title' 	=> '<h3 class="widget-title">',
+    'after_title' 	=> '</h3>',
+  ) );
+
+  // Sidebar widget for homepage
+  register_sidebar( array(
+    'name' 			    => 'Sidebar for Homepage',
+    'id' 			      => 'homepage-sidebar',
+    'description' 	=> 'Sidebar appears in the homepage',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' 	=> '</aside>',
+    'before_title' 	=> '<h3 class="widget-title">',
+    'after_title' 	=> '</h3>',
+  ) );
+
+
 });
 
 
@@ -51,3 +86,10 @@ add_filter( 'orbit-filter-field', function( $custom_function, $atts ){
   return $custom_function;
 
 }, 2, 10 );
+
+
+/* ADD SOW FROM THE THEME */
+add_action('siteorigin_widgets_widget_folders', function( $folders ){
+	$folders[] = get_stylesheet_directory() . '/so-widgets/';
+	return $folders;
+});
