@@ -5,7 +5,8 @@
 }
 /* Single Post Styles */
 #single-post p{ font-size: 17px; }
-#single-post .featured-image-container img{ width: 100%;height: auto; }
+#single-post .featured-image-container img,
+#single-post p img{ width: 100%;height: auto; }
 /*Post Tags Section */
 #single-post .post-tags a:before {
     font-family: "FontAwesome";
@@ -84,4 +85,3 @@
   background: #881e4f;
   border-bottom-color: #731943;
 }
-@media(max-width: 768px){ #single-post p img{ width: 100%; height: auto; } }
