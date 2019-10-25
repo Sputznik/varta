@@ -17,7 +17,7 @@
             <span class="pull-left"><?php previous_post_link("%link", "&laquo; Read Previous Article"); ?></span>
             <span class="pull-right"><?php next_post_link("%link", "Read Next Article &raquo;"); ?></span>
           </div>
-          <div style="clear:both;"><?php if ( comments_open() || has_comments() ) : comments_template(); endif;?></div>
+          <div style="clear:both;"><?php if ( comments_open() || have_comments() ) : comments_template(); endif;?></div>
         <?php endwhile; endif; ?>
       </div>
     </div>
