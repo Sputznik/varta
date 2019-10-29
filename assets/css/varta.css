@@ -57,18 +57,24 @@
 }
 /* About Author Section */
 #single-post .authors-section{
-  padding: 20px;
-  background: #ededed;
+  padding-top: 10px;
+  /* background: #ededed; */
   margin-bottom: 30px;
 }
-#single-post .authors-section .author-body{ margin-bottom: 30px; }
+/* #single-post .authors-section .author-body{ margin-bottom: 30px; } */
 #single-post .authors-section:first-child .author-body{ margin-top: 20px; }
 #single-post .authors-section .author-body:last-child{ margin-bottom: 0; }
-#single-post .author-avatar{
+#single-post .author-avatar > img{
   /* margin-bottom: 20px; */
   display: inline-block;
   border: 2px solid #000;
   border-radius: 50%;
+}
+#single-post .authors-section .author-body .author-name{
+  margin-top: 0;
+}
+#single-post .authors-section .author-body .author-avatar{
+  padding: 0;
 }
 #single-post .author-avatar img{ border-radius: 50%; }
 /* Comments */
@@ -84,4 +90,12 @@
   text-decoration: underline;
   background: #881e4f;
   border-bottom-color: #731943;
+}
+@media(max-width: 768px){
+  #single-post .authors-section .author-body .author-avatar{
+    padding-bottom: 20px;
+  }
+  #single-post .authors-section .author-body .author-desc{
+    padding-left: 0;
+  }
 }

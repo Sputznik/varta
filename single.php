@@ -13,6 +13,23 @@
           <?php the_content();?>
           <div class="post-tags"><?php the_tags( '', '', '' ); ?></div>
           <div class="under"></div>
+          <p style="margin-top: 15px;">About Author:</p>
+          <div class="authors-section">
+            <?php $coauthors = get_coauthors(); ?>
+            <?php foreach( $coauthors as $coauthor ): ?>
+              <div class="author-body">
+                <div class="author-avatar col-md-2 col-xs-12">
+                  <?php echo coauthors_get_avatar( $coauthor, 100 ) ?>
+                </div>
+                <div class="author-desc col-md-10 col-xs-12" style="padding-right:0;">
+                  <h3 class="author-name" style="display:inline-block"><?php echo $coauthor->display_name; ?></h3>
+                  <?php $userdata = get_userdata($coauthor->ID); ?>
+                  <?php if ( $userdata->user_description ):?><p><?php echo $userdata->user_description; ?></p><?php endif;?>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+          <div class="under"></div>
           <div class="post-nav">
             <span class="pull-left"><?php previous_post_link("%link", "&laquo; Read Previous Article"); ?></span>
             <span class="pull-right"><?php next_post_link("%link", "Read Next Article &raquo;"); ?></span>
@@ -22,20 +39,6 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="authors-section">
-        <p>About Author:</p>
-        <?php $coauthors = get_coauthors(); ?>
-        <?php foreach( $coauthors as $coauthor ): ?>
-          <div class="author-body">
-            <div class="author-avatar">
-              <?php echo coauthors_get_avatar( $coauthor, 80 ) ?>
-            </div>
-            <h3><?php echo $coauthor->display_name; ?></h3>
-            <?php $userdata = get_userdata($coauthor->ID); ?>
-            <?php if ( $userdata->user_description ):?><p><?php echo $userdata->user_description; ?></p><?php endif;?>
-          </div>
-        <?php endforeach; ?>
-      </div>
       <?php if( is_active_sidebar( 'single-post-sidebar' ) ){ dynamic_sidebar( 'single-post-sidebar' ); }?>
     </div>
   </div>
