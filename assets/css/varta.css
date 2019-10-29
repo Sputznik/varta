@@ -7,6 +7,15 @@
 #single-post p{ font-size: 17px; }
 #single-post .featured-image-container img,
 #single-post p img{ width: 100%;height: auto; }
+/* Categories section */
+#single-post .categories{ color: #771a45; font-weight: bold; }
+#single-post .post-categories{
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#single-post .post-categories li{ display: inline-block; }
 /*Post Tags Section */
 #single-post .post-tags a:before {
     font-family: "FontAwesome";
@@ -69,6 +78,9 @@
   display: inline-block;
   border: 2px solid #000;
   border-radius: 50%;
+}
+#single-post .authors-section .author-body{
+  padding: 0;
 }
 #single-post .authors-section .author-body .author-name{
   margin-top: 0;

@@ -7,7 +7,9 @@
           <div class="featured-image-container" style="margin-bottom: 30px;">
             <?php the_post_thumbnail();?>
           </div>
-          <p style="color: #771a45;"><span style="text-decoration: underline;"><strong>Happenings, Dec '16</strong></span></p>
+          <div class="categories">
+            <?php the_category()?>, <?php the_date('M \'y');?>
+          </div>
           <h1 title="<?php the_title();?>"><?php the_title();?></h1>
           <p><strong>By&nbsp;<?php the_author();?>&nbsp;|&nbsp;<?php the_date();?></strong></p>
           <?php the_content();?>
@@ -17,7 +19,7 @@
           <div class="authors-section">
             <?php $coauthors = get_coauthors(); ?>
             <?php foreach( $coauthors as $coauthor ): ?>
-              <div class="author-body">
+              <div class="author-body col-sm-12">
                 <div class="author-avatar col-md-2 col-xs-12">
                   <?php echo coauthors_get_avatar( $coauthor, 100 ) ?>
                 </div>
