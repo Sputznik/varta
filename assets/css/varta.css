@@ -6,7 +6,13 @@
 /* Single Post Styles */
 #single-post p{ font-size: 17px; }
 #single-post .featured-image-container img,
-#single-post p img{ width: 100%;height: auto; }
+#single-post p img,
+#single-post img.aligncenter,
+#single-post img.alignleft,
+#single-post  img.alignright,
+#single-post img.alignnone{
+  width: 100%;height: auto;
+}
 /* Categories section */
 #single-post .categories{ color: #771a45; font-weight: bold; }
 #single-post .post-categories{
