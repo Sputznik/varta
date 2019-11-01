@@ -93,3 +93,60 @@ add_action('siteorigin_widgets_widget_folders', function( $folders ){
 	$folders[] = get_stylesheet_directory() . '/so-widgets/';
 	return $folders;
 });
+
+
+
+
+
+
+
+
+// SERVICE TAXONOMIES
+
+/* CREATE ATTS ARRAY FROM DEFAULT AND USER PARAMETERS IN THE SHORTCODE */
+add_shortcode( 'service_terms', function( $atts ){
+
+$atts = shortcode_atts( array(
+  'taxonomy' 	=> '',
+), $atts, 'service_terms' );
+
+global $post;
+
+$term_list = wp_get_post_terms( $post->ID, $atts['taxonomy']);
+
+$final_terms = array();
+
+// ITERATING THE LIST TO FIND ONLY PARENT TERMS
+foreach( $term_list as $term ){
+  if( $term->parent == 0 ){
+    $final_terms[$term->term_id] = array(
+      'parent' => "<a href='".get_term_link( $term )."'>" . $term->name . "</a>",
+      'sub'    => array()
+    );
+  }
+}
+
+// ITERATING THE LIST TO FIND ONLY CHILD TERMS
+foreach( $term_list as $term ){
+  if( $term->parent != 0 && isset( $final_terms[$term->parent] ) && isset( $final_terms[$term->parent]['sub'] ) ){
+    array_push( $final_terms[$term->parent]['sub'], "<a href='".get_term_link( $term )."'>" . $term->name . "</a>" );
+  }
+}
+
+  $html = "<ul class='list-unstyled'>";
+  foreach( $final_terms as $term ){
+    if( isset($term['parent']) && is_array( $term['sub'] ) && count( $term['sub'] ) ){
+      $html .= "<li>";
+      $html .= "<strong>".$term['parent'].": </strong>";
+      $html .= implode("; ", $term['sub'] );
+      $html .= "</li>";
+    }
+
+  }
+  $html .= "</ul>";
+
+
+
+  return $html;
+
+});

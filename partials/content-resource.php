@@ -12,9 +12,9 @@ $metainfo = array(
     'shortcode' => '[orbit_terms taxonomy="locations"]'
   ),
   array(
-    'icon'      => 'fa fa-tag',
-    'label'     => 'Services: &nbsp;',
-    'shortcode' => '[orbit_terms taxonomy="services"]'
+    'icon'      => '',
+    'label'     => '',
+    'shortcode' => '[service_terms taxonomy="services"]'
   ),
 );
 
