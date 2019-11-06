@@ -118,3 +118,48 @@
     padding-left: 0;
   }
 }
+/* Orbit three column grid */
+@media (min-width: 769px){
+  .article-list.three-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    display: grid;
+  }
+}
+@media(max-width: 768px){
+  .article-list.three-list > li {
+    margin-bottom: 20px
+  }
+}
+.article-list.three-list .article-content{
+  background-color: #f7f7f7;
+  padding: 25px 20px;
+  min-height: 300px;
+}
+.article-list.three-list a {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.article-list.three-list .article-content h4 {
+    line-height: 1.3;
+    font-size: 1.45em;
+}
+.article-list.three-list .article-featured-image {
+  max-height: 200px;
+  overflow: hidden;
+  background: #eee;
+}
+.article-list.three-list .article-featured-image img {
+  max-width: 100%;
+  height: auto;
+}
+/* Categories section */
+.article-list.three-list .categories{ font-weight: bold; }
+.article-list.three-list .post-categories{
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.article-list.three-list .post-categories li{ display: inline-block; }

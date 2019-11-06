@@ -1,6 +1,6 @@
 <?php
 
-define( 'VARTA_VERSION', '1.1.2' );
+define( 'VARTA_VERSION', '1.1.3' );
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('varta-style', get_stylesheet_directory_uri().'/assets/css/varta.css', array('sp-core-style'), VARTA_VERSION );
@@ -57,9 +57,6 @@ add_action( 'widgets_init', function(){
 
 });
 
-
-
-
 add_filter( 'orbit-nested-dropdown-label', function( $label, $atts ){
 
   if( $atts['typeval'] == 'locations' ){ $label = "Select City"; }
@@ -68,8 +65,6 @@ add_filter( 'orbit-nested-dropdown-label', function( $label, $atts ){
   return $label;
 
 }, 2, 10 );
-
-
 
 
 add_filter( 'orbit-filter-field', function( $custom_function, $atts ){
@@ -94,12 +89,38 @@ add_action('siteorigin_widgets_widget_folders', function( $folders ){
 	return $folders;
 });
 
+//Excerpt
+function excerpt( $limit ) {
 
+	global $post;
 
+	$excerpt = $post->post_excerpt;
 
+	if( !$excerpt && !strlen( $excerpt ) ){
 
+    $excerpt = $post->post_content;
+		$excerpt = strip_shortcodes( $excerpt );
+		$excerpt = excerpt_remove_blocks( $excerpt );
+		$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
 
+	}
 
+	$excerpt = wp_trim_words( $excerpt, $limit, '...' );
+
+	return $excerpt;
+}
+
+// Get all the author names from Co-Authors plugin
+function displayAuthor(){
+
+  $coauthors = get_coauthors();
+  $authors_list = array();
+  foreach( $coauthors as $coauthor ){
+    array_push( $authors_list, $coauthor->display_name );
+  }
+  $author_name = implode( ', ', $authors_list );
+  return $author_name;
+}
 
 // SERVICE TAXONOMIES
 
