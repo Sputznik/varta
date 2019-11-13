@@ -4,6 +4,7 @@
   margin-bottom: 10px;
 }
 /* Single Post Styles */
+#single-post .post-content a{ text-decoration: underline; }
 #single-post p{ font-size: 17px; }
 #single-post .featured-image-container img,
 #single-post p img,

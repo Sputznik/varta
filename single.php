@@ -8,14 +8,16 @@
             <?php the_post_thumbnail();?>
           </div>
           <div class="categories">
-            <?php the_category()?>, <?php the_date('M \'y');?>
+            <?php the_category()?>, <?php echo get_the_date('M \'y');?>
           </div>
           <h1 title="<?php the_title();?>"><?php the_title();?></h1>
-          <p><strong>By&nbsp;<?php the_author();?>&nbsp;|&nbsp;<?php the_date();?></strong></p>
-          <?php the_content();?>
+          <p><strong>By&nbsp;<?php the_author();?>&nbsp;|&nbsp;<?php echo get_the_date();?></strong></p>
+          <div class="post-content">
+            <?php the_content();?>
+          </div>
           <div class="post-tags"><?php the_tags( '', '', '' ); ?></div>
           <div class="under"></div>
-          <p style="margin-top: 15px;">About Author:</p>
+          <!-- <p style="margin-top: 15px;">About Author:</p> -->
           <div class="authors-section">
             <?php $coauthors = get_coauthors(); ?>
             <?php foreach( $coauthors as $coauthor ): ?>
