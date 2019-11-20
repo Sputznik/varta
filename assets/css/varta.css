@@ -14,6 +14,21 @@
 #single-post img.alignnone{
   width: 100%;height: auto;
 }
+/* Single post images with caption */
+#single-post div .wp-caption{
+  max-width: 100%;
+}
+#single-post div .wp-caption img{
+  height: auto;
+  width: 100%;
+}
+/* Caption text */
+#single-post div .wp-caption .wp-caption-text{
+  font-size: small;
+  font-style: italic;
+  color: #990000;
+  margin-top: 10px;
+}
 /* Categories section */
 #single-post .categories{ color: #771a45; font-weight: bold; }
 #single-post .post-categories{
