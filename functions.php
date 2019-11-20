@@ -57,6 +57,7 @@ add_action( 'widgets_init', function(){
 
 });
 
+/*
 add_filter( 'orbit-nested-dropdown-label', function( $label, $atts ){
 
   if( $atts['typeval'] == 'locations' ){ $label = "Select City"; }
