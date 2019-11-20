@@ -29,6 +29,8 @@
   color: #990000;
   margin-top: 10px;
 }
+/* Caption text link */
+#single-post div .wp-caption .wp-caption-text a{ color: #d8450b; }
 /* Categories section */
 #single-post .categories{ color: #771a45; font-weight: bold; }
 #single-post .post-categories{
