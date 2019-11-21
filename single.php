@@ -12,6 +12,7 @@
           </div>
           <h1 title="<?php the_title();?>"><?php the_title();?></h1>
           <p><strong>By&nbsp;<?php the_author();?>&nbsp;|&nbsp;<?php echo get_the_date();?></strong></p>
+          <p><strong><?php echo excerpt(38);?></strong></p>
           <div class="post-content">
             <?php the_content();?>
           </div>
