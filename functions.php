@@ -151,7 +151,7 @@ foreach( $term_list as $term ){
 // ITERATING THE LIST TO FIND ONLY CHILD TERMS
 foreach( $term_list as $term ){
   if( $term->parent != 0 && isset( $final_terms[$term->parent] ) && isset( $final_terms[$term->parent]['sub'] ) ){
-    array_push( $final_terms[$term->parent]['sub'], "<a href='".get_term_link( $term )."'>" . $term->name . "</a>" );
+    array_push( $final_terms[$term->parent]['sub'], $term->name );
   }
 }
 
