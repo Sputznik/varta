@@ -172,3 +172,13 @@ foreach( $term_list as $term ){
   return $html;
 
 });
+
+// Returns fa fa-check-circle icon if the cf-verified is yes or no
+function showVerifiedIcon( $post_id ){
+  $verifiedField = get_post_meta( $post_id , 'verified' , true );
+  // Checks whether the verified field is yes or no
+  if( $verifiedField == "yes" ){
+    return _e("<i class='fa fa-check-circle' style='color: #45b6fe;'></i>");
+  }
+  return "";
+}

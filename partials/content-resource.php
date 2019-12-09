@@ -20,6 +20,7 @@ $metainfo = array(
 
 
 foreach ($metainfo as $meta) {
+
   if( $meta['shortcode'] ){
 
     $value = do_shortcode( $meta['shortcode'] );

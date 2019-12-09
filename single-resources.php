@@ -3,7 +3,10 @@
   <div class="row">
     <div class="col-sm-8"><div class="paper-box">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <h3><?php the_title();?></h3>
+        <h3>
+          <?php echo showVerifiedIcon( get_the_ID() ); ?>
+          <?php the_title();?>
+        </h3>
         <?php get_template_part("partials/content", "resource");?>
         <hr>
         <label>Contact Information:</label>

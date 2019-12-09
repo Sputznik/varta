@@ -53,6 +53,14 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 					'type' => 'text',
 					'text' => 'Concessions'
 				),
+				'verified'	=> array(
+					'type' => 'dropdown',
+					'text' => 'Verified',
+					'options'	=>	array(
+						'yes'	=>	'Yes',
+						'no'	=>	'No'
+					)
+				),
 			)
 		)
 	);
