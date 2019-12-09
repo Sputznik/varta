@@ -4,8 +4,8 @@
     <div class="col-sm-8"><div class="paper-box">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h3>
-          <?php echo showVerifiedIcon( get_the_ID() ); ?>
           <?php the_title();?>
+          <?php echo showVerifiedIcon( get_the_ID() ); ?>
         </h3>
         <?php get_template_part("partials/content", "resource");?>
         <hr>
