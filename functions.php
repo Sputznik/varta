@@ -58,7 +58,7 @@ add_action( 'widgets_init', function(){
 });
 
 add_filter( 'orbit_search_template', function( $template ){
-  $template = get_stylesheet_directory()."\partials\orbit-search.php";
+  $template = get_stylesheet_directory()."\partials\new-orbit-search.php";
   return $template;
 });
 
