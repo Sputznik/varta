@@ -1,6 +1,6 @@
 <?php
 
-define( 'VARTA_VERSION', '1.1.8' );
+define( 'VARTA_VERSION', '1.1.9' );
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('varta-style', get_stylesheet_directory_uri().'/assets/css/varta.css', array('sp-core-style'), VARTA_VERSION );
@@ -55,6 +55,11 @@ add_action( 'widgets_init', function(){
   ) );
 
 
+});
+
+add_filter( 'orbit_search_template', function( $template ){
+  $template = get_stylesheet_directory()."\partials\orbit-search.php";
+  return $template;
 });
 
 /*

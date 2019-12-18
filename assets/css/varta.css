@@ -200,3 +200,16 @@
 .article-list.two-list .post-categories li{
   display: inline-block;
 }
+
+
+@media(min-width: 768px){
+  .orbit-search-container.default-theme{
+    display: block;
+  }
+
+  .orbit-search-container.default-theme .orbit-search-form form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+  }
+}
