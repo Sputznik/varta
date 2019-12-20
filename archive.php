@@ -10,15 +10,15 @@
           Tagged Under: <?php echo single_month_title(' '); ?>
         <?php endif;?>
       </h1>
-      <?php if (have_posts()) : while ( have_posts() ) : the_post(); ?>
-        <div class="orbit-content">
-        	<h2 class='orbit-title'><a href='<?php the_permalink();?>'><?php the_title();?></a></h2>
-        	<p style="color: grey;"><?php the_time( 'F jS Y' );?></p>
-        	<div class='orbit-excerpt'><?php the_excerpt();?></div>
-        </div>
-        <a class='orbit-btn' href='<?php the_permalink();?>'>Continue Reading</a>
-        <hr>
-        <?php endwhile; endif; ?>
+      <?php if (have_posts()) : ?>
+      <ul class='article-list two-list' style='margin-bottom:50px; padding-left: 0;'>
+        <?php while (have_posts()) : the_post(); ?>
+        <li class="orbit-article-db orbit-list-db">
+          <?php get_template_part('partials/post', 'common');?>
+        </li>
+        <?php endwhile; ?>
+      </ul>
+      <?php endif; ?>
     </div>
     <div class="col-sm-4">
       <?php if( is_active_sidebar( 'single-post-sidebar' ) ){ dynamic_sidebar( 'single-post-sidebar' ); }?>

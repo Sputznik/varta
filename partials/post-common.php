@@ -10,6 +10,6 @@
 	<h1 class='orbit-title'><a href='<?php the_permalink();?>'><?php the_title();?></a></h1>
 	<hr>
 	<p>By <?php the_author();?> on <?php the_time( 'F jS Y' );?></p>
-	<div class='orbit-excerpt'><?php the_excerpt();?></div>
+	<div class='orbit-excerpt'><?php echo excerpt(28);?></div>
 </div>
 <a class='orbit-btn' href='<?php the_permalink();?>'>Continue Reading</a>

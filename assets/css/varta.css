@@ -331,3 +331,7 @@ nav.navigation.pagination .page-numbers.prev, nav.navigation.pagination .page-nu
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
+/* Archive */
+.article-list .orbit-content{ padding: 25px 20px 0; }
+.article-list .orbit-btn{ padding: 20px 20px !important; }
+.article-list .orbit-content > p{ font-weight: 700;}
