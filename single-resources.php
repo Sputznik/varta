@@ -14,7 +14,7 @@
         <?php get_template_part("partials/content", "single");?>
       <?php endwhile; endif; ?>
     </div></div>
-    <div class="col-sm-3 col-sm-offset-1">
+    <div class="col-sm-4">
       <?php if( is_active_sidebar( 'single-resource-sidebar' ) ){
         dynamic_sidebar( 'single-resource-sidebar' );
       }?>
