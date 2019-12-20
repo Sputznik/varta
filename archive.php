@@ -3,7 +3,7 @@
 <div class="container" style="padding-top: 35px; padding-bottom: 35px;">
   <div class="row">
     <div class="col-sm-8">
-      <h1 class="text-center" style="text-transform: capitalize;margin-bottom: 30px;">
+      <h1 style="text-transform: capitalize;margin-bottom: 30px;">
         <?php if( $term != null ): ?>
           Tagged Under: <?php echo $term->name; ?>
         <?php else: ?>
@@ -14,7 +14,7 @@
       <ul class='article-list two-list' style='margin-bottom:50px; padding-left: 0;'>
         <?php while (have_posts()) : the_post(); ?>
         <li class="orbit-article-db orbit-list-db">
-          <?php get_template_part('partials/post', 'common');?>
+          <?php get_template_part('partials/content', 'archive');?>
         </li>
         <?php endwhile; ?>
       </ul>
