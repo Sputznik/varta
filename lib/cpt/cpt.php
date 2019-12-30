@@ -53,6 +53,10 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 					'type' => 'text',
 					'text' => 'Concessions'
 				),
+				'services_other'	=> array(
+					'type' => 'text',
+					'text' => 'Other Services'
+				),
 				'verified'	=> array(
 					'type' => 'dropdown',
 					'text' => 'Verified',
