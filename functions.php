@@ -1,6 +1,6 @@
 <?php
 
-define( 'VARTA_VERSION', '1.2.4' );
+define( 'VARTA_VERSION', '1.2.5' );
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('varta-style', get_stylesheet_directory_uri().'/assets/css/varta.css', array('sp-core-style'), VARTA_VERSION );
@@ -131,6 +131,42 @@ function displayAuthor(){
 // SERVICE TAXONOMIES
 
 /* CREATE ATTS ARRAY FROM DEFAULT AND USER PARAMETERS IN THE SHORTCODE */
+add_shortcode( 'service_parent_terms', function( $atts ){
+  $atts = shortcode_atts( array(
+    'taxonomy' 	=> '',
+  ), $atts, 'service_parent_terms' );
+
+  global $post;
+
+  $term_list = wp_get_post_terms( $post->ID, $atts['taxonomy']);
+
+  $final_terms = array();
+
+  $parent_terms = array();
+
+  // ITERATING THE LIST TO FIND ONLY PARENT TERMS
+  foreach( $term_list as $term ){
+    if( $term->parent == 0 ){
+      $final_terms[$term->term_id] = "<a href='".get_term_link( $term )."'>" . $term->name . "</a>";
+    }
+  }
+
+  foreach( $final_terms as $final_term ){
+    array_push( $parent_terms, $final_term );
+  }
+
+  $html = "<ul class='list-unstyled'>";
+  $html .= "<li>";
+  $html .= "<strong>".implode( ', ', $parent_terms )." </strong>";
+  $html .= "</li>";
+  $html .= "</ul>";
+
+  return $html;
+});
+
+
+
+/* CREATE ATTS ARRAY FROM DEFAULT AND USER PARAMETERS IN THE SHORTCODE */
 add_shortcode( 'service_terms', function( $atts ){
 
 $atts = shortcode_atts( array(
@@ -147,7 +183,9 @@ $final_terms = array();
 foreach( $term_list as $term ){
   if( $term->parent == 0 ){
     $final_terms[$term->term_id] = array(
-      'parent' => "<a href='".get_term_link( $term )."'>" . $term->name . "</a>",
+      'parent' => $term->name,
+      'parent_id' => $term->term_id,
+      'children_id' => 'child-'.$term->term_id,
       'sub'    => array()
     );
   }
@@ -160,19 +198,25 @@ foreach( $term_list as $term ){
   }
 }
 
-  $html = "<ul class='list-unstyled'>";
+  $html .= "<div class='panel-group' id='accordian' role='tablist' aria-multiselectable='true'>";
   foreach( $final_terms as $term ){
     if( isset($term['parent']) && is_array( $term['sub'] ) && count( $term['sub'] ) ){
-      $html .= "<li>";
-      $html .= "<strong>".$term['parent'].": </strong>";
-      $html .= implode("; ", $term['sub'] );
-      $html .= "</li>";
+      $html .= "<div class='panel panel-default'>";
+      $html .=  "<div class='panel-heading' role='tab' id='".$term['children_id']."'>";
+      $html .=    "<h4 class='panel-title'>";
+      $html .=     "<button class='btn btn-accord' type='button' data-toggle='collapse' data-parent='#accordian' data-target='#".$term['parent_id']."' aria-expanded='true' aria-controls='".$term['parent_id']."'>";
+      $html .=       $term['parent'];
+      $html .=      "</button>";
+      $html .=     "</h4></div>";
+
+      $html .=  "<div id='".$term['parent_id']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='".$term['children_id']."'>";
+      $html .=  "<div class='panel-body'>";
+      $html .= "<ul><li>".implode("</li><li>", $term['sub'] )."</li></ul>";
+      $html .= "</div></div></div>";
     }
-
   }
-  $html .= "</ul>";
 
-
+  $html .= "</div>";
 
   return $html;
 

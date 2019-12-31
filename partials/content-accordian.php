@@ -1,20 +1,10 @@
 <?php
-
+// ACCORDIAN TEMPLATE FOR SERVICES
 $metainfo = array(
-  // array(
-  //   'icon'      => 'fa fa-calendar',
-  //   'label'     => '',
-  //   'shortcode' => '[orbit_date]'
-  // ),
-  array(
-    'icon'      => 'fa fa-map-marker',
-    'label'     => '',
-    'shortcode' => '[orbit_terms taxonomy="locations"]'
-  ),
   array(
     'icon'      => '',
     'label'     => '',
-    'shortcode' => '[service_parent_terms taxonomy="services"]'
+    'shortcode' => '[service_terms taxonomy="services"]'
   ),
 );
 
