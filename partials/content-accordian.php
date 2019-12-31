@@ -8,7 +8,9 @@ $metainfo = array(
   ),
 );
 
-
+?>
+<label class="view-services">View Services:</label>
+<?php
 foreach ($metainfo as $meta) {
 
   if( $meta['shortcode'] ){

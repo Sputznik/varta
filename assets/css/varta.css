@@ -338,6 +338,10 @@ nav.navigation.pagination .page-numbers.prev, nav.navigation.pagination .page-nu
 
 
 /* Accordian*/
+.paper-box .view-services{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .btn.btn-accord{ background: transparent; }
 .btn.btn-accord:focus{outline: none;}
 .btn.btn-accord:active{box-shadow: none;}
