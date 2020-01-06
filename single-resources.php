@@ -12,7 +12,7 @@
         <label>Contact Information:</label>
         <?php the_content('Read the rest of this entry »'); ?>
         <?php get_template_part("partials/content", "single");?>
-        <?php get_template_part("partials/content", "accordian");?>
+        <?php get_template_part("partials/content", "services-accordian");?>
       <?php endwhile; endif; ?>
     </div></div>
     <div class="col-sm-4">

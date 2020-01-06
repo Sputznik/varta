@@ -55,7 +55,15 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 				),
 				'services_other'	=> array(
 					'type' => 'text',
-					'text' => 'Other Services'
+					'text' => 'Other Legal Aid Services'
+				),
+				'services_mental_other'	=> array(
+					'type' => 'text',
+					'text' => 'Other Mental Health Services'
+				),
+				'services_sexual_other'	=> array(
+					'type' => 'text',
+					'text' => 'Other Sexual Health Services'
 				),
 				'verified'	=> array(
 					'type' => 'dropdown',

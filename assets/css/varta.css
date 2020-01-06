@@ -342,6 +342,21 @@ nav.navigation.pagination .page-numbers.prev, nav.navigation.pagination .page-nu
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.btn.btn-accord{ background: transparent; }
+.btn.btn-accord{
+  background: transparent;
+  font-size: 17px;
+  width: 100%;
+  text-align: left;
+}
 .btn.btn-accord:focus{outline: none;}
 .btn.btn-accord:active{box-shadow: none;}
+
+
+.btn.btn-accord::after{
+  content : '-';
+  float: right;
+}
+
+.btn.btn-accord.collapsed::after{
+  content : '+';
+}

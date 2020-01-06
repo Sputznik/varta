@@ -1,6 +1,6 @@
 <?php
 
-define( 'VARTA_VERSION', '1.2.6' ); 
+define( 'VARTA_VERSION', '1.2.7' );
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('varta-style', get_stylesheet_directory_uri().'/assets/css/varta.css', array('sp-core-style'), VARTA_VERSION );
@@ -157,6 +157,7 @@ add_shortcode( 'service_parent_terms', function( $atts ){
 
   $html = "<ul class='list-unstyled'>";
   $html .= "<li>";
+  $html .= "<i class='fa fa-briefcase'></i>&nbsp;";
   $html .= "<strong>".implode( ', ', $parent_terms )." </strong>";
   $html .= "</li>";
   $html .= "</ul>";
@@ -199,6 +200,7 @@ foreach( $term_list as $term ){
 }
 
   $html .= "<div class='panel-group' id='accordian' role='tablist' aria-multiselectable='true'>";
+  $i = 0;
   foreach( $final_terms as $term ){
     if( isset($term['parent']) && is_array( $term['sub'] ) && count( $term['sub'] ) ){
       $html .= "<div class='panel panel-default'>";
@@ -209,10 +211,14 @@ foreach( $term_list as $term ){
       $html .=      "</button>";
       $html .=     "</h4></div>";
 
-      $html .=  "<div id='".$term['parent_id']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='".$term['children_id']."'>";
+      $panel_class = 'panel-collapse collapse';
+      if( $i == 0 ){ $panel_class = 'panel-collapse collapse in'; }
+
+      $html .=  "<div id='".$term['parent_id']."' class='".$panel_class."' role='tabpanel' aria-labelledby='".$term['children_id']."'>";
       $html .=  "<div class='panel-body'>";
       $html .= "<ul><li>".implode("</li><li>", $term['sub'] )."</li></ul>";
       $html .= "</div></div></div>";
+      $i++;
     }
   }
 
