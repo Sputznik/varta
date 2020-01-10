@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-      <ul class="list-unstyled">
+      <ul id="<?php _e( $atts['id'] );?>" data-target="<?php _e('li.author');?>" data-url="<?php _e( $atts['url'] );?>" class="list-unstyled users">
       <?php foreach ( $this->query->results as $user ):?>
-      	<li>
-          <h3><a href="<?php _e( get_author_posts_url( $user->ID ) );?>"><?php _e( ucwords( $user->display_name ) );?></a></h3>
-          <p><?php _e( get_the_author_meta('description', $user->ID) );?></p>
+      	<li class="author">
+          <div class="author-info-section">
+            <div class="author-avatar">
+              <img src="<?php _e( get_avatar_url( $user->ID ) );?>" alt="<?php _e( ucwords( $user->display_name ) );?>" />
+            </div>
+            <div class="author-desc" style="padding-right:0;">
+              <h3><a href="<?php _e( get_author_posts_url( $user->ID ) );?>"><?php _e( ucwords( $user->display_name ) );?></a></h3>
+              <p><?php _e( get_the_author_meta('description', $user->ID) );?>
+            </div>
+          </div>
         </li>
       <?php endforeach;?>
       </ul>
