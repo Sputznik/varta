@@ -14,7 +14,7 @@
       <ul class='article-list two-list' style='margin-bottom:50px; padding-left: 0;'>
         <?php while (have_posts()) : the_post(); ?>
         <li class="orbit-article-db orbit-list-db">
-          <?php get_template_part('partials/content', 'archive');?>
+          <?php get_template_part('partials/content', 'article');?>
         </li>
         <?php endwhile; ?>
       </ul>
