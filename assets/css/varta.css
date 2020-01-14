@@ -356,6 +356,12 @@ nav.navigation.pagination .page-numbers.prev, nav.navigation.pagination .page-nu
   margin-top: 10px;
   margin-bottom: 10px;
 }
+/* Cf-other */
+.panel-group .cf-other-title > h4 {
+  font-weight: bold;
+  font-size: 14px;
+}
+/* Cf-other */
 .btn.btn-accord{
   background: transparent;
   font-size: 17px;

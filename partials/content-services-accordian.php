@@ -44,19 +44,20 @@
         <div class='panel-body'>
           <ul>
             <li><?php _e( implode("</li><li>", $term['sub'] ) ); ?></li>
-            <?php
-
-              $metafield = 'services_other';
-              if( $term['slug'] == 'mental-health' ){ $metafield = 'services_mental_other'; }
-              elseif( $term['slug'] == 'sexual-health' ){ $metafield = 'services_sexual_other'; }
-
-              $other_services_text = get_post_meta( $post->ID, $metafield, true );
-              if( $other_services_text ){
-                echo "<li>". $other_services_text . "</li>";
-              }
-
-            ?>
           </ul>
+          <!-- Custom Field Info-->
+          <?php
+            $metafield = 'services_other';
+            if( $term['slug'] == 'mental-health' ){ $metafield = 'services_mental_other'; }
+            elseif( $term['slug'] == 'sexual-health' ){ $metafield = 'services_sexual_other'; }
+
+            $other_services_text = get_post_meta( $post->ID, $metafield, true );
+            if( $other_services_text ){
+              echo "<div class='cf-other-title'><h4>Other</h4>";
+              echo $other_services_text ."</div>";
+            }
+          ?>
+          <!-- Custom Field Info-->
         </div>
       </div>
     </div>
