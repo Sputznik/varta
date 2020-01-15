@@ -103,7 +103,7 @@
   /* margin-bottom: 20px; */
   display: inline-block;
   border: 2px solid #000;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 #single-post .authors-section .author-body{
   padding: 0;
@@ -117,7 +117,7 @@
 }
 #single-post .author-avatar img,
 #author-page .author-avatar img,
-.users .author-avatar img{ border-radius: 50%; }
+/* .users .author-avatar img{ border-radius: 50%; } */
 /* Comments */
 #single-post .comment-form input[type=submit] {
     background: #731943;
