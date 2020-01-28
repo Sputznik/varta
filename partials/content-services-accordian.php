@@ -53,7 +53,7 @@
 
             $other_services_text = get_post_meta( $post->ID, $metafield, true );
             if( $other_services_text ){
-              echo "<div class='cf-other-title'><h4>Other</h4>";
+              echo "<div class='cf-other-title'><h4>Other services provided:</h4>";
               echo $other_services_text ."</div>";
             }
           ?>
