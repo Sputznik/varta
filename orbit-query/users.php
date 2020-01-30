@@ -6,10 +6,10 @@
       	<li class="author">
           <div class="author-info-section">
             <div class="author-avatar">
-              <img src="<?php _e( get_avatar_url( $user->ID ) );?>" alt="<?php _e( ucwords( $user->display_name ) );?>" />
+              <img src="<?php _e( get_avatar_url( $user->ID ) );?>" alt="<?php _e( $user->display_name );?>" />
             </div>
             <div class="author-desc" style="padding-right:0;">
-              <h3><a href="<?php _e( get_author_posts_url( $user->ID ) );?>"><?php _e( ucwords( $user->display_name ) );?></a></h3>
+              <h3><a href="<?php _e( get_author_posts_url( $user->ID ) );?>"><?php _e( $user->display_name );?></a></h3>
               <p><?php _e( get_the_author_meta('description', $user->ID) );?>
             </div>
           </div>
