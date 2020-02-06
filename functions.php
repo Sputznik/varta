@@ -1,6 +1,6 @@
 <?php
 
-define( 'VARTA_VERSION', '1.3.2' ); 
+define( 'VARTA_VERSION', '1.3.2' );
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('varta-style', get_stylesheet_directory_uri().'/assets/css/varta.css', array('sp-core-style'), VARTA_VERSION );
@@ -227,6 +227,46 @@ foreach( $term_list as $term ){
   return $html;
 
 });
+
+// Returns parent and child term associated to a post with taxonomy locations
+add_shortcode( 'location_terms', function( $atts ){
+
+  $atts = shortcode_atts( array(
+    'taxonomy' 	=> '',
+    'seperator'	=> ', ',
+    'link'		=> '1'
+  ), $atts, 'location_terms' );
+
+  global $post;
+
+  $term_list = wp_get_post_terms($post->ID, $atts['taxonomy']);
+
+  $term_list = array_reverse( $term_list );
+
+  $html = "";
+
+  $i = 1;
+  foreach( $term_list as $term ){
+    if( $atts['link'] == '1' ){
+      $html .= "<a href='".get_term_link( $term )."'>";
+    }
+
+    $html .= $term->name;
+
+    if( $atts['link'] == '1' ){
+      $html .= "</a>";
+    }
+
+    if( $i < count( $term_list ) ){
+      $html .= $atts['seperator'];
+    }
+    $i++;
+  }
+
+  return $html;
+
+} );
+
 
 // Returns fa fa-check-circle icon if the cf-verified is yes or no
 function showVerifiedIcon( $post_id ){

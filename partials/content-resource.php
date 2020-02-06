@@ -9,7 +9,7 @@ $metainfo = array(
   array(
     'icon'      => 'fa fa-map-marker',
     'label'     => '',
-    'shortcode' => '[orbit_terms taxonomy="locations"]'
+    'shortcode' => '[location_terms taxonomy="locations"]'
   ),
   array(
     'icon'      => '',
