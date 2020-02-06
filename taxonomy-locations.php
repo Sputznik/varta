@@ -4,7 +4,25 @@
   <div class="row">
     <div class="col-sm-8">
       <h1>Service Providers for: <?php echo $term->name;?></h1>
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php
+      //Sort the posts alphabetically orderby Post Title
+      $args = array(
+        'orderby'=> 'title',
+        'order' => 'ASC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+              'taxonomy' => 'locations',
+              'field' => 'slug',
+              'terms' => array( $term->name ),
+              'operator' => 'IN'
+          )
+        ),
+      );
+
+      $query = new WP_Query( $args );
+
+      if ( have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
         <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
         <?php get_template_part("partials/content", "resource");?>
         <?php endwhile; endif; ?>
