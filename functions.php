@@ -228,6 +228,51 @@ foreach( $term_list as $term ){
 
 });
 
+
+// Returns parent and child term associated to a post with taxonomy -> locations
+add_shortcode( 'location_terms', function( $atts ){
+
+  $atts = shortcode_atts( array(
+    'taxonomy' 	=> '',
+  ), $atts, 'location_terms' );
+
+  global $post;
+
+  $term_list = wp_get_post_terms( $post->ID, $atts['taxonomy'] );
+
+  $final_terms = array();
+
+  // ITERATING THE LIST TO FIND ONLY PARENT TERMS
+  foreach( $term_list as $term ){
+    if( $term->parent == 0 ){
+      $final_terms[$term->term_id] = array(
+        'parent' => "<a href='".get_term_link( $term )."'>" . $term->name . "</a>",
+        'sub'    => array()
+      );
+    }
+  }
+
+  // ITERATING THE LIST TO FIND ONLY CHILD TERMS
+  foreach( $term_list as $term ){
+    if( $term->parent != 0 && isset( $final_terms[$term->parent] ) && isset( $final_terms[$term->parent]['sub'] ) ){
+      array_push( $final_terms[$term->parent]['sub'], "<a href='".get_term_link( $term )."'>" . $term->name . "</a>" );
+    }
+  }
+
+  $html = "";
+
+  foreach ( $final_terms as $parent ) {
+    foreach ( $parent['sub'] as $child) {
+      $html .= $child.", ".$parent['parent'];
+    }
+  }
+  return $html;
+
+} );
+
+
+
+
 // Returns fa fa-check-circle icon if the cf-verified is yes or no
 function showVerifiedIcon( $post_id ){
   $verifiedField = get_post_meta( $post_id , 'verified' , true );
