@@ -5,6 +5,7 @@
     <div class="col-sm-8">
       <h1>Service Providers for: <?php echo $term->name; ?></h1>
       <?php
+      /*
       //Sort the posts alphabetically orderby Post Title
       $args = array(
         'orderby'=> 'title',
@@ -20,14 +21,16 @@
         ),
       );
 
-      $query = new WP_Query( $args );
+      //$query = new WP_Query( $args );
+      */
 
-      if ( have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+      if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
         <?php get_template_part("partials/content", "resource");?>
         <?php endwhile; endif; ?>
         <!-- Pagination -->
         <?php
+          global $wp_query;
           if( $wp_query->max_num_pages > 1 ){
             the_posts_pagination( array(
               'mid_size'  => 2,
