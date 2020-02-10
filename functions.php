@@ -233,40 +233,37 @@ foreach( $term_list as $term ){
 add_shortcode( 'location_terms', function( $atts ){
 
   $atts = shortcode_atts( array(
-    'taxonomy' 	=> '',
+    'taxonomy' 	=> 'locations',
   ), $atts, 'location_terms' );
 
   global $post;
 
   $term_list = wp_get_post_terms( $post->ID, $atts['taxonomy'] );
 
-  $final_terms = array();
+  $final_terms = array(
+    'parent'  => '',
+    'child'   => ''
+  );
 
   // ITERATING THE LIST TO FIND ONLY PARENT TERMS
   foreach( $term_list as $term ){
     if( $term->parent == 0 ){
-      $final_terms[$term->term_id] = array(
-        'parent' => "<a href='".get_term_link( $term )."'>" . $term->name . "</a>",
-        'sub'    => array()
-      );
+      $final_terms['parent'] = "<a href='".get_term_link( $term )."'>" . $term->name . "</a>";
+    }
+    else{
+      $final_terms['child'] = "<a href='".get_term_link( $term )."'>" . $term->name . "</a>";
     }
   }
 
-  // ITERATING THE LIST TO FIND ONLY CHILD TERMS
-  foreach( $term_list as $term ){
-    if( $term->parent != 0 && isset( $final_terms[$term->parent] ) && isset( $final_terms[$term->parent]['sub'] ) ){
-      array_push( $final_terms[$term->parent]['sub'], "<a href='".get_term_link( $term )."'>" . $term->name . "</a>" );
-    }
-  }
+  ob_start();
 
-  $html = "";
-
-  foreach ( $final_terms as $parent ) {
-    foreach ( $parent['sub'] as $child) {
-      $html .= $child.", ".$parent['parent'];
-    }
+  echo $final_terms['child'];
+  if( $final_terms['child'] && $final_terms['parent'] ){
+    echo ", ";
   }
-  return $html;
+  echo $final_terms['parent'];
+
+  return ob_get_clean();
 
 } );
 
