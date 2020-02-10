@@ -279,3 +279,10 @@ function showVerifiedIcon( $post_id ){
   }
   return "";
 }
+
+add_action( 'pre_get_posts', function( $query ){
+  if( is_archive() && $query->is_main_query() ) {
+    $query->query_vars['orderby'] = 'name';
+    $query->query_vars['order'] = 'ASC';
+  }
+} );
