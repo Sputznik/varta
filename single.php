@@ -1,4 +1,5 @@
 <?php get_header();?>
+<?php $coauthors = get_coauthors(); ?>
 <div id="single-post" class="container" style="padding-top: 80px; padding-bottom: 80px;">
   <div class="row">
     <div class="col-sm-8">
@@ -11,8 +12,13 @@
             <?php the_category()?>, <?php echo get_the_date('M \'y');?>
           </div>
           <h1 title="<?php the_title();?>"><?php the_title();?></h1>
-          <p><strong>By&nbsp;<?php the_author();?>&nbsp;|&nbsp;<?php echo get_the_date();?></strong></p>
-          <p><strong><?php echo excerpt(38);?></strong></p>
+          <p><strong>By&nbsp;<?php
+            foreach( $coauthors as $coauthor) {
+              echo $coauthor->display_name;
+              if ($coauthor != end($coauthors)) echo ", ";
+            }
+          ?>&nbsp;|&nbsp;<?php echo get_the_date();?></strong></p>
+          <p><strong><?php echo excerpt(60);?></strong></p>
           <div class="post-content">
             <?php the_content();?>
           </div>
@@ -20,7 +26,6 @@
           <div class="under"></div>
           <!-- <p style="margin-top: 15px;">About Author:</p> -->
           <div class="authors-section">
-            <?php $coauthors = get_coauthors(); ?>
             <?php foreach( $coauthors as $coauthor ): ?>
               <div class="author-body col-sm-12">
                 <div class="author-avatar col-md-2 col-xs-12">
