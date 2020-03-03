@@ -281,7 +281,7 @@ function showVerifiedIcon( $post_id ){
 }
 
 add_action( 'pre_get_posts', function( $query ){
-  if( is_post_type_archive('resources') && $query->is_main_query() ) {
+  if( (is_post_type_archive('resources') && $query->is_main_query()) || (is_tax('locations') && $query->is_main_query()) || (is_tax('services') && $query->is_main_query()) ){
     $query->query_vars['orderby'] = 'name';
     $query->query_vars['order'] = 'ASC';
   }
