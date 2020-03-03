@@ -19,6 +19,17 @@
         <?php endwhile; ?>
       </ul>
       <?php endif; ?>
+      <!-- PAGINATION -->
+      <?php
+        global $wp_query;
+        if( $wp_query->max_num_pages > 1 ){
+          the_posts_pagination( array(
+            'mid_size'  => 2,
+            'prev_text' => __( 'Previous', 'textdomain' ),
+            'next_text' => __( 'Next', 'textdomain' ),
+          ) );
+        }
+      ?>
     </div>
     <div class="col-sm-4">
       <?php if( is_active_sidebar( 'single-post-sidebar' ) ){ dynamic_sidebar( 'single-post-sidebar' ); }?>
