@@ -12,7 +12,7 @@
       'mid_size'   => 1,
       'current'    => $current_page,
       'total'      => $this->query->max_num_pages,
-      'prev_text'  => __('« Prev', 'textdomain'),
+      'prev_text'  => __('« Previous', 'textdomain'),
       'next_text'  => __('Next »', 'textdomain'),
     ) );
   }
