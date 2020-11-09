@@ -118,14 +118,16 @@ function excerpt( $limit ) {
 
 // Get all the author names from Co-Authors plugin
 function displayAuthor(){
-
-  $coauthors = get_coauthors();
-  $authors_list = array();
-  foreach( $coauthors as $coauthor ){
-    array_push( $authors_list, $coauthor->display_name );
-  }
-  $author_name = implode( ', ', $authors_list );
-  return $author_name;
+	$author_name = get_the_author();
+	if( function_exists( 'get_coauthors' ) ){
+		$coauthors = get_coauthors();
+	  $authors_list = array();
+	  foreach( $coauthors as $coauthor ){
+	    array_push( $authors_list, $coauthor->display_name );
+	  }
+	  $author_name = implode( ', ', $authors_list );
+	}
+	return $author_name;
 }
 
 // SERVICE TAXONOMIES
