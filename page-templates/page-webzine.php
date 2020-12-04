@@ -1,4 +1,8 @@
-<?php get_header();?>
+<?php
+/**
+ * Template Name: Webzine Page
+ */
+get_header();?>
 	<div class="container">
     <div class="row">
       <div class="col-sm-12">
