@@ -364,3 +364,6 @@ nav.navigation.pagination .page-numbers.next {
 .btn.btn-accord:active{ box-shadow: none; }
 .btn.btn-accord::after{ content : '-'; float: right; }
 .btn.btn-accord.collapsed::after{ content : '+'; }
+
+/* PAGE WEBZINE */
+.webzine-headline{ margin-bottom: 30px; padding-top: 60px; }
