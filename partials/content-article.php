@@ -19,7 +19,7 @@
 </a>
 <div class="article-content">
   <div class="categories">
-    <?php the_category()?> <?php the_date('M \'y');?>
+    <?php the_category(', '); ?> <?php the_date('M \'y');?>
   </div>
   <a href = "<?php the_permalink(); ?>" class="<?php _e( $post_type );?>">
     <h4><strong><?php echo $title; ?></strong></h4>

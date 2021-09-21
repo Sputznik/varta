@@ -9,7 +9,7 @@
             <?php the_post_thumbnail();?>
           </div>
           <div class="categories">
-            <?php the_category()?>, <?php echo get_the_date('M \'y');?>
+            <?php the_category(', '); ?>, <?php echo get_the_date('M \'y');?>
           </div>
           <h1 title="<?php the_title();?>"><?php the_title();?></h1>
           <p><strong>By&nbsp;<?php

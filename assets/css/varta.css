@@ -193,6 +193,12 @@
   font-weight: bold;
 }
 
+.article-list.three-list .categories a,
+.article-list.two-list .categories a,
+#single-post .categories a{
+  display: inline-block;
+}
+
 .article-list.three-list .post-categories,
 .article-list.two-list .post-categories{
   display: inline-block;
