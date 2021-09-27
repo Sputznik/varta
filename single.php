@@ -28,10 +28,10 @@
           <div class="authors-section">
             <?php foreach( $coauthors as $coauthor ): ?>
               <div class="author-body col-sm-12">
-                <div class="author-avatar col-md-2 col-xs-12">
+                <div class="author-avatar col-md-2 col-xs-3">
                   <?php echo coauthors_get_avatar( $coauthor, 100 ) ?>
                 </div>
-                <div class="author-desc col-md-10 col-xs-12" style="padding-right:0;">
+                <div class="author-desc col-md-10 col-xs-9" style="padding-right:0;">
                   <h3 class="author-name" style="display:inline-block"><?php echo $coauthor->display_name; ?></h3>
                   <?php $userdata = get_userdata($coauthor->ID); ?>
                   <?php if ( $userdata->user_description ):?><p><?php echo $userdata->user_description; ?></p><?php endif;?>
