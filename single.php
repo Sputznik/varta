@@ -33,8 +33,7 @@
                 </div>
                 <div class="author-desc col-md-10 col-xs-9" style="padding-right:0;">
                   <h3 class="author-name" style="display:inline-block"><?php echo $coauthor->display_name; ?></h3>
-                  <?php $userdata = get_userdata($coauthor->ID); ?>
-                  <?php if ( $userdata->user_description ):?><p><?php echo $userdata->user_description; ?></p><?php endif;?>
+                  <p><?php echo $coauthor->description; ?></p>
                 </div>
               </div>
             <?php endforeach; ?>
