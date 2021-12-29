@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-sm-8">
       <h1>Service Providers for: <?php echo $term->name;?></h1>
+      <hr>
       <?php
       /*
       //Sort the posts alphabetically orderby Post Title
@@ -25,9 +26,27 @@
       */
 
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
-        <?php get_template_part("partials/content", "resource");?>
-        <?php endwhile; endif; ?>
+        <div class="varta-cpt-entry">
+
+          <h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
+
+          <?php $cp_type = get_post_type();
+          if ( $cp_type == 'resources' ) {
+            ?><p class="cp_type">Queery friendy service provider</p> <?php
+            get_template_part("partials/content", "resource");
+          }
+          else {
+            ?><p class="cp_type">Covid19 Services</p>
+            <p><i class="fa fa-map-marker"></i> <?php echo do_shortcode('[location_terms]'); ?></p>
+            <p><i class="fa fa-users"></i> <?php echo do_shortcode('[orbit_terms taxonomy="communities"]'); ?></p>
+            <div class="covid19-services"><i class="fa fa-briefcase"></i> <?php echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div>
+            <?php
+          }
+          ?>
+
+        </div>
+      <?php endwhile; endif; ?>
+
         <!-- Pagination -->
         <?php
           global $wp_query;

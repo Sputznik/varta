@@ -3,32 +3,16 @@
 <div class="container" style="padding-top: 35px; padding-bottom: 35px;">
   <div class="row">
     <div class="col-sm-8">
-      <h1>Service Providers for: <?php echo $term->name; ?></h1>
+      <h1>Covid19 Resources for: <?php echo $term->name; ?></h1>
       <hr>
       <?php
-      /*
-      //Sort the posts alphabetically orderby Post Title
-      $args = array(
-        'orderby'=> 'title',
-        'order' => 'ASC',
-        'post_status' => 'publish',
-        'tax_query' => array(
-          array(
-              'taxonomy' => 'services',
-              'field' => 'slug',
-              'terms' => array( $term->name ),
-              'operator' => 'IN'
-          )
-        ),
-      );
-
-      //$query = new WP_Query( $args );
-      */
 
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <div class="varta-cpt-entry">
           <h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
-          <?php get_template_part("partials/content", "resource");?>
+          <p><i class="fa fa-map-marker"></i> <?php echo do_shortcode('[location_terms]'); ?></p>
+          <p><i class="fa fa-users"></i> <?php echo do_shortcode('[orbit_terms taxonomy="communities"]'); ?></p>
+          <div class="covid19-services"><i class="fa fa-briefcase"></i> <?php echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div>
         </div>
       <?php endwhile; endif; ?>
         <!-- Pagination -->

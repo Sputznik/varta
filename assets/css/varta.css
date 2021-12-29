@@ -1,10 +1,46 @@
-/* Filter*/
-.custom-field-info label{
-  margin-top:  10px;
-  margin-bottom: 10px;
+/* ------------------- Essential --------------------*/
+body{ color:#000;}
+
+p{ font-size:17px; line-height:24px; margin-bottom:15px;}
+h4{ line-height:26px; }
+h5{ font-size: 14px; line-height: 22px; }
+h6{ font-size: 12px; line-height: 18px; }
+h3{ line-height: 36px; margin-bottom: 15px; }
+h1{ margin-bottom:20px; }
+h3.widget-title label {font-weight:normal !important;} /* sidebar mainly */
+
+ul { padding-left:18px; font-size:17px; line-height:28px; }
+nav ul { font-size:14px; }
+
+p a, #single-post .post-content a { text-decoration:none; border-bottom:1px solid #771a45; color:#771a45 !important; }
+p a:hover { text-decoration: none; color: #000; }
+aside a {color: white !important; border-bottom-color: white !important;}
+
+/* ------------------ Header Nav ----------------- */
+
+@media(max-width: 768px){
+  .navbar-brand>img{
+  	width: 140px;
+    margin-top: -20px;
+  }
 }
-/* Single Post Styles */
-#single-post .post-content a{ text-decoration: underline; }
+
+@media only screen and (max-width: 768px) and (min-width: 768px){
+	.navbar-brand>img{ margin-left: 21px; }
+}
+@media(min-width: 769px){
+	.navbar-right {
+    float: right !important;
+    margin-right: -15px;
+    margin-top: 35px !important;
+    background-color: white;
+  }
+}
+
+
+/* ---------- Single Post Styles ------------------ */
+
+#single-post .post-content a { text-decoration: none; }
 #single-post p{ font-size: 17px; }
 #single-post .featured-image-container img,
 #single-post p img,
@@ -14,6 +50,15 @@
 #single-post img.alignnone{
   max-width: 100%;height: auto;
 }
+#single-post div .wp-caption.alignleft{
+	float: left;
+  margin-right: 20px;
+}
+#single-post div .wp-caption.alignright{
+	float: right;
+  margin-left: 20px;
+}
+
 /* Single post images with caption */
 #single-post div .wp-caption{
   max-width: 100%;
@@ -131,8 +176,30 @@
   #single-post .authors-section .author-body .author-desc{
     padding-left: 0;
   }
+  .users .author-avatar > img, #author-page .author-avatar > img {
+			width:30% !important;
+	}
 }
-/* Orbit three column grid */
+/* AUTHORS LIST SHORTCODE */
+.users .author-info-section, #author-page .author-info-section {
+		grid-gap:10px;
+}
+#single-post .author-avatar > img, .users .author-avatar > img, #author-page .author-avatar > img {
+		width:85%;
+		height:auto;
+}
+/* ------------ SO text widgets (mainly for pages)----------- */
+.textwidget img, .textwidget .wp-caption { max-width:100%; overflow:hidden; height:auto; }
+.textwidget img.alignleft{ float: left; margin: 0 20px 20px 0; }
+.textwidget img.alignright{ float: right; margin: 0 0 20px 20px; }
+.textwidget .wp-caption-text{
+	font-size: small;
+	font-style: italic;
+	color: #990000;
+	margin-top: 10px;
+}
+
+/* ----------------- article grids/lists -------------------- */
 @media (min-width: 769px){
   .article-list.three-list {
     grid-template-columns: 1fr 1fr 1fr;
@@ -210,8 +277,9 @@
 .article-list.two-list .post-categories li{
   display: inline-block;
 }
+.article-list li{ background: #f7f7f7; }
 
-
+/* -------------------- search form --------------------- */
 @media(min-width: 768px){
   .orbit-search-container.default-theme{
     display: block;
@@ -222,7 +290,14 @@
     grid-gap: 30px;
   }
 }
-
+.custom-field-info label{
+  margin-top:  10px;
+  margin-bottom: 10px;
+}
+.orbit-search-container.default-theme .orbit-search-form form {
+  display: block !important;
+}
+/* -------------------- navigation/pagination --------------------- */
 nav.navigation.pagination {
   background: none;
 }
@@ -346,15 +421,24 @@ nav.navigation.pagination .page-numbers.next {
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-/* Archive */
+/*----------------------- Archive --------------------------- */
 .article-list .orbit-content{ padding: 25px 20px 0; }
 .article-list .orbit-btn{ padding: 20px 20px !important; }
 .article-list .orbit-content .orbit-title{ font-size: 1.45em; line-height: 1.3; }
 
-/* Accordian*/
+/* -------------------- single resource ----------------------- */
 .paper-box .view-services{
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.related-services h4{ font-size: 20px; line-height:26px; }
+.related-services h6{ font-family: 'Nunito'; font-size: 14px; line-height: 19px;}
+
+.single-resources .cf-other-title {
+  padding-left:18px;
+}
+.single-resources #accordian .panel-heading {
+  padding:10px 3px !important;
 }
 /* Cf-other */
 .panel-group .cf-other-title > h4 { font-weight: bold; font-size: 14px; }
@@ -370,7 +454,72 @@ nav.navigation.pagination .page-numbers.next {
 .btn.btn-accord:active{ box-shadow: none; }
 .btn.btn-accord::after{ content : '-'; float: right; }
 .btn.btn-accord.collapsed::after{ content : '+'; }
+/* -------------------- single covid19 resource --------------------- */
+.covid19-services {
+  font-size:17px;
+  font-weight: bold;
+}
 
-/* PAGE WEBZINE */
+/* -------------------- custom taxonomy archive --------------------- */
+
+.varta-cpt-entry {
+  margin-bottom: 45px;
+}
+/* --------------------- Search results --------------------------- */
+.search-results .search-content {
+		margin-top:60px;
+}
+/* --------------------------- PAGE WEBZINE ---------------------------- */
 body.page-template-page-webzine .webzine-headline{ margin-bottom: 30px; padding-top: 60px; }
 @media(max-width:992px){ body.page-template-page-webzine .page-numbers{ margin-bottom: 30px; } }
+
+ul.page-numbers {
+	list-style: none;
+	background: #f1f1f1;
+	border: 1px solid #eee;
+	width: max-content;
+	margin: 0 auto;
+	padding: 5px 10px;
+}
+ul.page-numbers li {
+  font-size:15px;
+  display:inline;
+}
+ul.page-numbers li a {
+  padding:2px 10px;
+}
+ul.page-numbers span.current {
+	text-decoration: underline;
+	font-weight: bold;
+	color: #771a45;
+}
+/* -------------- Other (plugins, footer, SO customizations) -------------- */
+.menu-footer-links-container ul { list-style: none; padding: 0; }
+.screenshots-images-style{
+	max-height:200px;
+	overflow:hidden;
+	border:solid 1px #999;
+}
+.wpcf7-form label { font-weight:inherit !important; }
+.addthis_tool {margin:30px 0;}
+@media(max-width: 425px){
+  .wpcf7 input[type='text'],
+  .wpcf7 input[type='email'],
+  .wpcf7 textarea{
+    width: 100%;
+  }
+}
+
+/* consent popup */
+.spu-close-popup.pop-btn {
+  border:0;
+  padding:8px 15px;
+  color:white;
+  background:black;
+  text-align:center;
+}
+
+/* hide add this from pages */
+.page .addthis_tool {
+		display:none;
+}

@@ -8,7 +8,7 @@
         </h1>
         <p><i class="fa fa-map-marker"></i> <?php echo do_shortcode('[location_terms]'); ?></p>
         <p><i class="fa fa-users"></i> <?php echo do_shortcode('[orbit_terms taxonomy="communities"]'); ?></p>
-        <p><i class="fa fa-briefcase"></i> <?php echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></p>
+        <div class="covid19-services"><i class="fa fa-briefcase"></i> <?php echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div>
         <hr>
 
         <?php the_content(); ?>
