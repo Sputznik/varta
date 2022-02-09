@@ -11,7 +11,7 @@
           <h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
           <p><i class="fa fa-map-marker"></i> <?php echo do_shortcode('[location_terms]'); ?></p>
           <p><i class="fa fa-users"></i> <?php echo do_shortcode('[orbit_terms taxonomy="communities"]'); ?></p>
-          <div class="covid19-services"><i class="fa fa-briefcase"></i> <?php echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div>
+          <!--div class="covid19-services"><i class="fa fa-briefcase"></i> <?php //echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div-->
         </div>
       <?php endwhile; endif; ?>
         <!-- Pagination -->
