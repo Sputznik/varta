@@ -13,7 +13,7 @@
         <hr>
         <h2>Services offered:</h2>
         <ul>
-        <?php $term_list = wp_get_post_terms( $post->ID, 'services' );
+        <?php $term_list = wp_get_post_terms( $post->ID, 'covid19-services' );
           foreach ($term_list as $term) { ?>
             <li><?php echo $term->name; ?></li>
         <?php } ?>
