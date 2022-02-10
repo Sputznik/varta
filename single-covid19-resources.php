@@ -11,13 +11,15 @@
         <!--div class="covid19-services"><i class="fa fa-briefcase"></i> <?php // echo do_shortcode('[orbit_terms taxonomy="covid19-services"]'); ?></div-->
 
         <hr>
-        <h2>Services offered:</h2>
+
+        <h3>Services offered:</h3>
         <ul>
         <?php $term_list = wp_get_post_terms( $post->ID, 'covid19-services' );
           foreach ($term_list as $term) { ?>
             <li><?php echo $term->name; ?></li>
         <?php } ?>
         </ul>
+
         <hr>
 
         <?php the_content(); ?>
@@ -28,7 +30,7 @@
 
         <div class="covid19-resource-cf">
           <p><strong>Nature of organization:</strong> <?php echo do_shortcode('[orbit_cf id="nature-of-organization"]'); ?></p>
-          <p><strong>Other support provided or planned to be provided:</strong> <?php echo do_shortcode('[orbit_cf id="other-support-provided"]'); ?></p>
+          <p><strong>Other information:</strong> <?php echo do_shortcode('[orbit_cf id="other-support-provided"]'); ?></p>
         </div>
 
       <?php endwhile; endif; ?>
