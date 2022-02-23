@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-8">
       <ul id="<?php _e( $atts['id'] );?>" data-target="<?php _e('li.author');?>" data-url="<?php _e( $atts['url'] );?>" class="list-unstyled users">
-      <?php foreach ( $this->query->results as $user ):?>
+      <?php foreach ( $this->query as $user ):?>
       	<li class="author">
           <div class="author-info-section">
             <div class="author-avatar">
