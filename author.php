@@ -1,20 +1,23 @@
 <?php get_header();?>
 <?php
   // Get current Author data
-  $current_author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+  // $current_author = get_user_by( 'slug', get_query_var( 'author_name' ) );
   // Current Author Name
-  $current_author_name = ucwords( $current_author->display_name );
+  // $current_author_name = ucwords( $current_author->display_name );
+  global $wp_query;
+  $current_author = $wp_query->get_queried_object();
 ?>
 <div id="author-page" class="container" style="padding-top: 80px; padding-bottom: 80px;">
   <div class="row">
     <div class="col-sm-8">
       <div class="author-info-section">
         <div class="author-avatar">
-          <img src="<?php _e( get_avatar_url( $current_author->ID ) );?>" alt="<?php _e( $current_author_name );?>" />
+          <!-- img src="<?php // _e( get_avatar_ur( $current_author->ID ) );?>" alt="<?php // _e( $current_author_name );?>" /-->
+          <?php echo get_avatar( $current_author->ID, '80', '', $current_author->display_name ); ?>
         </div>
         <div class="author-desc" style="padding-right:0;">
-          <h3 class="author-name" style="display:inline-block"><?php _e( $current_author_name );?></h3>
-          <p><?php _e( get_the_author_meta('description', $current_author->ID) );?>
+          <h3 class="author-name" style="display:inline-block"><?php _e( $current_author->display_name );?></h3>
+          <p><?php _e( $current_author->description );?>
         </div>
       </div>
       <div class="paper-box">
