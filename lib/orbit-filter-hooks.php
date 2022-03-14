@@ -2,8 +2,8 @@
 
 // NON-HIERARCHICAL TERMS
 add_filter('orbit_filter_terms', function( $terms, $args, $post_type ){
-  $args['post_types'] = $post_type;
   if( $args['taxonomy'] == 'locations' ){
+    $args['post_types'] = $post_type;
     $terms = get_vgs_terms( $args['taxonomy'], $args );
   }
   return $terms;
@@ -11,8 +11,8 @@ add_filter('orbit_filter_terms', function( $terms, $args, $post_type ){
 
 // HIERARCHICAL TERMS
 add_filter('orbit_filter_nested_terms', function( $terms, $args, $post_type ){
-  $args['post_types'] = $post_type;
   if( $args['taxonomy'] == 'locations' ){
+    $args['post_types'] = $post_type;
     $terms = get_vgs_terms( $args['taxonomy'], $args );
   }
   return $terms;
