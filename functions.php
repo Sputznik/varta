@@ -8,6 +8,7 @@ add_action('wp_enqueue_scripts',function(){
 });
 
 include('lib/cpt/cpt.php');
+include('lib/orbit-filter-hooks.php');
 
 //Sidebar widget for single-resource posts
 add_action( 'widgets_init', function(){
