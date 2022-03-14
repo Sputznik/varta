@@ -3,14 +3,18 @@
 // NON-HIERARCHICAL TERMS
 add_filter('orbit_filter_terms', function( $terms, $args, $post_type ){
   $args['post_types'] = $post_type;
-  $terms = get_vgs_terms( $args['taxonomy'], $args );
+  if( $args['taxonomy'] == 'locations' ){
+    $terms = get_vgs_terms( $args['taxonomy'], $args );
+  }
   return $terms;
 }, 10, 3 );
 
 // HIERARCHICAL TERMS
 add_filter('orbit_filter_nested_terms', function( $terms, $args, $post_type ){
   $args['post_types'] = $post_type;
-  $terms = get_vgs_terms( $args['taxonomy'], $args );
+  if( $args['taxonomy'] == 'locations' ){
+    $terms = get_vgs_terms( $args['taxonomy'], $args );
+  }
   return $terms;
 }, 10, 3 );
 
