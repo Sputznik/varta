@@ -2,7 +2,7 @@
 	<div class="orbit-search-form-box">
 		<div class="orbit-search-form-title">
 			<span class='fa-icon'><i class="fa fa-search"></i></span>
-			<span>Search Form</span>
+			<span><?php _e( 'Search Form' ); ?></span>
 			<span class="arrow-down"></span>
 		</div>
 		<?php $this->filters_form( $form );?>
