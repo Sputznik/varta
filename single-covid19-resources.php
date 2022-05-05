@@ -12,7 +12,7 @@
 
         <hr>
 
-        <h3>Services offered:</h3>
+        <h3><?php _e( 'Services offered' );?>:</h3>
         <ul>
         <?php $term_list = wp_get_post_terms( $post->ID, 'covid19-services' );
           foreach ($term_list as $term) { ?>
@@ -29,8 +29,8 @@
         <?php // $nature_of_org = get_post_meta(get_the_ID(), 'nature-of-organization', true); ?>
 
         <div class="covid19-resource-cf">
-          <p><strong>Nature of organization:</strong> <?php echo do_shortcode('[orbit_cf id="nature-of-organization"]'); ?></p>
-          <p><strong>Other information:</strong> <?php echo do_shortcode('[orbit_cf id="other-support-provided"]'); ?></p>
+          <p><strong><?php _e( 'Nature of organization' );?>:</strong> <?php echo do_shortcode('[orbit_cf id="nature-of-organization"]'); ?></p>
+          <p><strong><?php _e( 'Other information' );?>:</strong> <?php echo do_shortcode('[orbit_cf id="other-support-provided"]'); ?></p>
         </div>
 
       <?php endwhile; endif; ?>
