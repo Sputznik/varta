@@ -3,7 +3,7 @@
 <div class="container" style="padding-top: 35px; padding-bottom: 35px;">
   <div class="row">
     <div class="col-sm-8">
-      <h1>Covid19 Resources for: <?php echo $term->name; ?></h1>
+      <h1>COVID-19 Resources for: <?php echo $term->name; ?></h1>
       <hr>
       <?php
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
