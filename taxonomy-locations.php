@@ -8,10 +8,12 @@
 
     global $wp_query;
 
-    $wp_query->set( 'post_type', array( 'resources' ) );
+    //$wp_query->set( 'post_type', array( 'resources' ) );
     //print_r( $term );
 
+    echo "<!--";
     print_r( $wp_query );
+    echo "-->";
 
   }
 
