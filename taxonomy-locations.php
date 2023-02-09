@@ -1,5 +1,22 @@
 <?php get_header();?>
 <?php $term = $wp_query->get_queried_object();?>
+
+
+<?php
+
+  if( $term->term_id == 51 ){
+
+    global $wp_query;
+
+    //print_r( $term );
+
+    print_r( $wp_query );
+
+  }
+
+
+?>
+
 <div class="container" style="padding-top: 35px; padding-bottom: 35px;">
   <div class="row">
     <div class="col-sm-8">
