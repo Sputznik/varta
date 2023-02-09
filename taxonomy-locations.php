@@ -8,6 +8,7 @@
 
     global $wp_query;
 
+    $wp_query->set( 'post_type', array( 'resources' ) );
     //print_r( $term );
 
     print_r( $wp_query );
