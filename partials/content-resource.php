@@ -28,7 +28,7 @@ foreach ($metainfo as $meta) {
     if( $value ){
       _e("<p>");
       if( $meta['icon'] ){ _e( "<i class='". $meta['icon'] ."'></i> &nbsp; " ); }
-      if( $meta['label'] ){ _e( "<label>". $meta['label'] ."</label>" ); }
+      if( $meta['label'] ){ ?>"<label>"<?php _e( $meta['label'] ); ?>"</label>"<?php }
       echo $value;
       _e("</p>");
     }
