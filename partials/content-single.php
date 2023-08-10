@@ -15,7 +15,9 @@ echo '<div class="custom-field-info">';
 foreach ( $cf_fields as $key => $field ) {
   $data = get_post_meta( $post->ID , $key , true );
     if( !empty( $data ) ){
-      _e( '<label>'.$field.':</label><p>'.$data.'</p>' );
+      echo '<label>';
+      _e($field);
+      echo (':</label><p>'.$data.'</p>' );
     }
 }
 echo "</div>";
