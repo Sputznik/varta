@@ -1,5 +1,5 @@
 
-<label class="view-services">View Services:</label>
+<label class="view-services"><?php _e('View Services'); ?>:</label>
 <?php
 
 
