@@ -9,7 +9,7 @@
         </h1>
         <?php get_template_part("partials/content", "resource");?>
         <hr>
-        <label>Contact Information:</label>
+        <label><?php _e('Contact Information'); ?>:</label>
         <?php the_content('Read the rest of this entry »'); ?>
         <?php get_template_part("partials/content", "single");?>
         <?php get_template_part("partials/content", "services-accordian");?>
