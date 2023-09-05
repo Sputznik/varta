@@ -52,11 +52,12 @@
             elseif( $term['slug'] == 'sexual-health' ){ $metafield = 'services_sexual_other'; }
 
             $other_services_text = get_post_meta( $post->ID, $metafield, true );
-            if( $other_services_text ){
-              echo "<div class='cf-other-title'><h4>Other services provided:</h4>";
-              echo $other_services_text ."</div>";
-            }
-          ?>
+            if( $other_services_text ):?>
+              <div class='cf-other-title'>
+                <h4><?php _e( 'Other services provided' );?>:</h4>
+                <?php echo $other_services_text; ?>
+              </div>
+            <?php endif;?>
           <!-- Custom Field Info-->
         </div>
       </div>
