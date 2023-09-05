@@ -48,8 +48,8 @@
           <!-- Custom Field Info-->
           <?php
             $metafield = 'services_other';
-            if( $term['slug'] == 'mental-health' ){ $metafield = 'services_mental_other'; }
-            elseif( $term['slug'] == 'sexual-health' ){ $metafield = 'services_sexual_other'; }
+            if( $term['slug'] == 'mental-health' || rawurldecode( $term['slug'] ) == 'मानसिक-स्वास्थ्य-सेवाएं' ){ $metafield = 'services_mental_other'; }
+            elseif( $term['slug'] == 'sexual-health' || rawurldecode( $term['slug'] ) == 'यौन-स्वास्थ्य-सेवाएं' ){ $metafield = 'services_sexual_other'; }
 
             $other_services_text = get_post_meta( $post->ID, $metafield, true );
             if( $other_services_text ):?>
