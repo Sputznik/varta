@@ -52,7 +52,7 @@
 
           <?php $cp_type = get_post_type();
           if ( $cp_type == 'resources' ) {
-            ?><p class="cp_type">Queery friendy service provider</p> <?php
+            ?><p class="cp_type">Queer friendly service provider</p> <?php
             get_template_part("partials/content", "resource");
           }
           else {
